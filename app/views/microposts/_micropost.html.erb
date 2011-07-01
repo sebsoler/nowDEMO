@@ -1,0 +1,43 @@
+<tr>
+	<td class="micropost">
+	<% if (micropost.filter_id) == 1 %>
+		<span class="filter_id"><%= image_tag("../images/reading.jpg", :border=>0) %></span>
+	<% end %>
+	<% if (micropost.filter_id) == 2 %>
+		<span class="filter_id"><%= image_tag("../images/listening.jpg", :border=>0) %></span>
+	<% end %>
+	<% if (micropost.filter_id) == 3 %>
+		<span class="filter_id"><%= image_tag("../images/doing.jpg", :border=>0) %></span>
+	<% end %>
+	<% if (micropost.filter_id) == 4 %>
+		<span class="filter_id"><%= image_tag("../images/visiting.jpg", :border=>0) %></span>
+	<% end %>
+	<% if (micropost.filter_id) == 5 %>
+		<span class="filter_id"><%= image_tag("../images/eating.jpg", :border=>0) %></span>
+	<% end %>
+	<% if (micropost.filter_id) == 6 %>
+		<span class="filter_id"><%= image_tag("../images/buying.jpg", :border=>0) %></span>
+	<% end %>
+	<% if (micropost.filter_id) == 7 %>
+		<span class="filter_id"><%= image_tag("../images/wearing.jpg", :border=>0) %></span>
+	<% end %>
+	<% if (micropost.filter_id) == 8 %>
+		<span class="filter_id"><%= image_tag("../images/attending.jpg", :border=>0) %></span>
+	<% end %>
+	<% if (micropost.filter_id) == 9 %>
+		<span class="filter_id"><%= image_tag("../images/posting.jpg", :border=>0) %></span>
+	<% end %>
+	
+	<span class="content"><%= micropost.content %></span>
+	<span class="timestamp">
+		Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+	</span>
+	</td>
+	<% if current_user?(micropost.user) %>
+	<td>
+		<%= link_to "delete", micropost, :method => :delete,
+		:confirm => "You sure?",
+		:title => micropost.content %>
+	</td>
+	<% end %>
+</tr>

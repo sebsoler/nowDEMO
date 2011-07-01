@@ -1,0 +1,49 @@
+<tr>
+	<td class="gravatar">
+		<%= link_to gravatar_for(feed_item.user), feed_item.user %>
+	</td>
+	<td class="micropost">
+		<span class="user">
+			<%= link_to feed_item.user.name, feed_item.user %>
+		</span><br />
+		<% if (feed_item.filter_id) == 1 %>
+			<span class="filter_id"><%= image_tag("../images/reading.jpg", :border=>0) %></span>
+		<% end %>
+		<% if (feed_item.filter_id) == 2 %>
+			<span class="filter_id"><%= image_tag("../images/listening.jpg", :border=>0) %></span>
+		<% end %>
+		<% if (feed_item.filter_id) == 3 %>
+			<span class="filter_id"><%= image_tag("../images/doing.jpg", :border=>0) %></span>
+		<% end %>
+		<% if (feed_item.filter_id) == 4 %>
+			<span class="filter_id"><%= image_tag("../images/visiting.jpg", :border=>0) %></span>
+		<% end %>
+		<% if (feed_item.filter_id) == 5 %>
+			<span class="filter_id"><%= image_tag("../images/eating.jpg", :border=>0) %></span>
+		<% end %>
+		<% if (feed_item.filter_id) == 6 %>
+			<span class="filter_id"><%= image_tag("../images/buying.jpg", :border=>0) %></span>
+		<% end %>
+		<% if (feed_item.filter_id) == 7 %>
+			<span class="filter_id"><%= image_tag("../images/wearing.jpg", :border=>0) %></span>
+		<% end %>
+		<% if (feed_item.filter_id) == 8 %>
+			<span class="filter_id"><%= image_tag("../images/attending.jpg", :border=>0) %></span>
+		<% end %>
+		<% if (feed_item.filter_id) == 9 %>
+			<span class="filter_id"><%= image_tag("../images/posting.jpg", :border=>0) %></span>
+		<% end %>
+		
+		<span class="content"><%= feed_item.content %></span>
+		<span class="timestamp">
+			Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+		</span>
+	</td>
+	<% if current_user?(feed_item.user) %>
+	<td>
+		<%= link_to "delete", feed_item, :method => :delete,
+										 :confirm => "You sure?",
+										 :title => feed_item.content %>
+	</td>
+	<% end %>
+</tr>

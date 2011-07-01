@@ -1,0 +1,19 @@
+<% if signed_in? %>
+	<table class="front" summary="For signed-in users">
+		<tr>
+			<td class="main">
+				<%= render 'shared/micropost_form' %>
+				<%= render 'shared/feed' %>
+			</td>
+			<td class="sidebar round">
+				<%= render 'shared/user_info' %>
+			</td>
+		</tr>
+	</table>
+<% else %>
+	<h1>Now Doing Demo App</h1>
+	<p>
+		Hello World! What are you doing?
+	</p>
+	<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<% end %>

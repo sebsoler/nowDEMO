@@ -1,0 +1,11 @@
+<%= form_for @micropost do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+	<h1>Now: ... <%= f.select :filter_id , options_for_select({"Reading"=>"1","Listening"=>"2","Doing"=>"3","Visiting"=>"4", "Eating"=>"5", "Buying"=>"6", "Wearing"=>"7", "Attending"=>"8", "Posting"=>"9"}) %></h1>
+	<div class="field">
+		<%= f.text_area :content %>
+	</div>
+	
+	<div class="actions">
+		<%= f.submit "Submit" %>
+	</div>
+<% end %>
