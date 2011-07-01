@@ -5,4 +5,4 @@ require File.expand_path('../config/application', __FILE__)
 require 'rake/dsl_definition'
 require 'rake'
 
-GroupiverseDemo::Application.load_tasks
+nowdoing_demo::Application.load_tasks
